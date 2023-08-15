@@ -1,17 +1,18 @@
-# import database palembang from file [D:\hakim\palembang\dariSepta\PIM_new.sql], into server 1 and server 2
-# add privileges for pos and cpms [D:\hakim\cpms\privileges.sql\
++ import database palembang from file [D:\hakim\palembang\dariSepta\PIM_new.sql], into server 1 and server 2
++ import table tcm from file [D:\hakim\palembang\pushGithub\table\tcm.sql]
++ add privileges for pos and cpms [D:\hakim\cpms\privileges.sql\
 
-# create directory [$ mkdir t]<br>
-# $ cd t<br>
-# $ git clone <br>
-# import table, trigger and function into database [trs], run script bellow<br>
++ create directory [$ mkdir t]<br>
++ $ cd t<br>
++ $ git clone <br>
++ import table, trigger and function into database [trs], run script bellow<br>
 	+ [sap@localhost t]$ ./restoreDb.sh<br>
 	+ [sap@localhost t]$ ./restoreTriger.sh<br>
-# show trigger / select trigger<br>
++ show trigger / select trigger<br>
 	+ select information_schema.triggers.trigger_name, information_schema.triggers.trigger_schema from information_schema.triggers;<br>
-# show function / select function<br>
++ show function / select function<br>
 	+ SELECT routine_schema as "Database", routine_name, routine_type FROM information_schema.routines WHERE routine_schema = 'trs' ORDER BY routine_name ASC;<br>
-# test transaction using application POS <br>
++ test transaction using application POS <br>
 	+ connect app to db 1<br>
 	+ test insert into server 2 [trs]<br>
 		+ POS configuration<br>
